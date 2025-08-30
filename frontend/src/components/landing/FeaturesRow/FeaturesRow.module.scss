@@ -1,0 +1,12 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  padding: clamp(24px, 5vw, 56px) clamp(16px, 4vw, 48px);
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

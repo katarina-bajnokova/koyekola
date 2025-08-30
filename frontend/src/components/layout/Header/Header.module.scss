@@ -1,0 +1,30 @@
+.header {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+.logo {
+  height: 36px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: clamp(16px, 3vw, 40px);
+
+  a {
+    @include text(body, medium);
+    color: $ebony-bark;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 0.7;
+    }
+    &:focus-visible {
+      @include focus-ring($forest-green);
+    }
+  }
+}

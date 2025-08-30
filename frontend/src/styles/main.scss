@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "./globals" as *;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  font-size: map.get($font-sizes, body);
+  background: $sand-ivory;
+  color: $ebony-bark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  @include card;
+}

@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "./tokens" as *;
+
+@mixin heading($level) {
+  font-family: $font-family;
+  font-weight: map.get($font-weights, bold);
+  font-size: map.get($font-sizes, $level);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+/* ✅ Add this mixin */
+@mixin text($name, $weight: null, $lh: 1.2, $margin: 0) {
+  font-family: $font-family;
+  font-size: map.get($font-sizes, $name);
+  line-height: $lh;
+  margin: $margin;
+
+  @if $weight != null {
+    font-weight: map.get($font-weights, $weight);
+  } @else {
+    font-weight: map.get($font-weights, regular);
+  }
+}
+
+/* (Optional helper classes you already had) */
+.display-xl {
+  @include heading(display-xl);
+}
+.display-l {
+  @include heading(display-l);
+}
+.h1 {
+  @include heading(h1);
+  font-weight: map.get($font-weights, semibold);
+}
+.h2 {
+  @include heading(h2);
+  font-weight: map.get($font-weights, medium);
+}
+.h3 {
+  @include heading(h3);
+  font-weight: map.get($font-weights, medium);
+}
+
+.body-lg {
+  @include text(body-lg);
+}
+.body {
+  @include text(body);
+}
+.body-sm {
+  @include text(body-sm);
+}

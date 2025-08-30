@@ -1,0 +1,20 @@
+@use "./tokens" as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin card {
+  background: $sand-ivory;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba($ebony-bark, 0.1);
+}
+
+/* (optional, handy) */
+@mixin focus-ring($color: $river-clay-blue) {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba($color, 0.35);
+}

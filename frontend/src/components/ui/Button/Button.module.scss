@@ -1,0 +1,26 @@
+.btn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 28px;
+  @include text(body-lg, medium);
+  transition:
+    transform 0.06s ease,
+    box-shadow 0.2s ease;
+}
+
+.primary {
+  background: $golden-baobab;
+  color: $ebony-bark;
+  box-shadow: 0 6px 16px rgba($golden-baobab, 0.45);
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+  &:focus-visible {
+    @include focus-ring($golden-baobab);
+  }
+}
