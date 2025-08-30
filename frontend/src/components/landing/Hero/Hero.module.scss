@@ -1,32 +1,63 @@
+@use "@styles/variables/tokens" as *;
+@use "@styles/variables/typography" as *;
+
+/* Two columns; left copy forms a centered block */
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   align-items: center;
-  gap: clamp(24px, 5vw, 64px);
-  padding: clamp(12px, 3vw, 24px) clamp(16px, 4vw, 48px) clamp(24px, 5vw, 56px);
+  gap: clamp(32px, 6vw, 80px);
+  padding-block: clamp(28px, 6vw, 84px);
 }
 
 .copy {
-  max-width: 700px;
+  max-width: 771px; /* from Figma */
+  margin-inline: 0; /* stays in the left column */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center the whole block */
+  text-align: center; /* center the text */
 }
 
 .title {
-  @include text(display-l, bold, 1.15, 0 0 24px 0);
+  /* Figma: Display XL → 64px/80px, bold */
+  @include text(display-xl, bold, 1.25, 0 0 28px 0);
   letter-spacing: -0.02em;
+  color: $ebony-bark;
+  max-width: 771px;
+  margin-inline: auto; /* keep the lines centered inside the block */
+}
 
-  @media (min-width: 1200px) {
-    @include text(display-xl, bold);
-  }
+/* Button sits right under the heading, centered */
+.copy :global(button) {
+  align-self: center;
 }
 
 .art {
   display: flex;
   justify-content: center;
+  align-items: center;
+
   img {
-    max-width: min(520px, 100%);
+    width: clamp(
+      420px,
+      36vw,
+      640px
+    ); /* close to your Figma 684×598 but responsive */
     height: auto;
     filter: drop-shadow(0 12px 30px rgba($ebony-bark, 0.08));
     user-select: none;
     pointer-events: none;
+  }
+}
+
+/* Mobile: stack, mascot above, keep centered text */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .art {
+    order: -1;
   }
 }

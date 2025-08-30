@@ -1,0 +1,51 @@
+@use "@styles/_globals" as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba($ebony-bark, 0.45);
+  border: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(520px, 92vw);
+  @include card; // uses your sand-ivory bg + shadow
+  padding: 28px 24px;
+  text-align: center;
+  background: #fff; // better contrast on the dimmed backdrop
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba($ebony-bark, 0.25);
+}
+
+.title {
+  @include text(h2, semibold, 1.2, 0 0 8px 0);
+}
+.text {
+  @include text(body);
+  color: $savanna;
+  margin-bottom: 16px;
+}
+
+.close {
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 20px;
+  @include text(body, medium);
+  background: $golden-baobab;
+  color: $ebony-bark;
+  box-shadow: 0 6px 16px rgba($golden-baobab, 0.35);
+  &:focus-visible {
+    @include focus-ring($golden-baobab);
+  }
+}
